@@ -1,0 +1,20 @@
+[package]
+name = "oandaohlc"
+description = "A simple and tiny OHLC data downloader for Oanda."
+authors = ["peerchemist <peerchemisty@protonmail.ch>"]
+version = "0.2.0"
+edition = "2024"
+
+[dependencies]
+reqwest = { version = "0.12.14", default-features = false, features = [
+    "json",
+    "rustls-tls",
+] }
+rusqlite = { version = "0.34", features = ["bundled"] }
+tokio = { version = "1.44.0", features = ["full"] }
+chrono = { version = "0.4", features = ["serde"] }
+serde = { version = "1", features = ["derive"] }
+clap = { version = "4.5.32", features = ["derive"] }
+
+[package.metadata.cross.target.arm-unknown-linux-gnueabihf]
+image = "ghcr.io/cross-rs/arm-unknown-linux-gnueabihf"
